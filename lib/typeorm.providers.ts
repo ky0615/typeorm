@@ -16,7 +16,7 @@ export function createTypeOrmProviders(
     provide: getRepositoryToken(entity, connection),
     useFactory: (connection: Connection) => {
       if (
-        entity instanceof Function &&
+        typeof Repository === 'function' &&
         (entity.prototype instanceof Repository ||
           entity.prototype instanceof AbstractRepository)
       ) {
